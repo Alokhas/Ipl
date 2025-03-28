@@ -25,11 +25,20 @@
             border: 2px solid #fff;
             border-radius: 8px;
         }
+        #fullscreen-btn {
+            margin-top: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
         #telegram-link {
             margin-top: 15px;
         }
         #telegram-link img {
-            width: 50px;  /* Adjust size as needed */
+            width: 50px;
             height: 50px;
         }
     </style>
@@ -37,7 +46,8 @@
 <body>
 
     <div id="video-container">
-        <video id="video" controls autoplay></video>
+        <video id="video" controls autoplay allowfullscreen></video>
+        <button id="fullscreen-btn">Full Screen</button>
     </div>
 
     <a id="telegram-link" href="https://t.me/Linux_Bots" target="_blank">
@@ -47,10 +57,11 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const video = document.getElementById('video');
-            
+            const fullscreenBtn = document.getElementById('fullscreen-btn');
+
             // Obfuscated URL
             const encodedURL = atob("aHR0cHM6Ly9teWN0eGEudGVteWNzc21lLndpa2kvNzIwcC5tM3U4");
-            
+
             if (Hls.isSupported()) {
                 const hls = new Hls();
                 hls.loadSource(encodedURL);
@@ -64,6 +75,19 @@
                     video.play();
                 });
             }
+
+            // Fullscreen button functionality
+            fullscreenBtn.addEventListener("click", function () {
+                if (video.requestFullscreen) {
+                    video.requestFullscreen();
+                } else if (video.mozRequestFullScreen) {
+                    video.mozRequestFullScreen();
+                } else if (video.webkitRequestFullscreen) {
+                    video.webkitRequestFullscreen();
+                } else if (video.msRequestFullscreen) {
+                    video.msRequestFullscreen();
+                }
+            });
         });
     </script>
 
