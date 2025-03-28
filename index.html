@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Stream</title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <style>
+        body {
+            margin: 0;
+            background: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        #video-container {
+            position: relative;
+            width: 80%;
+            max-width: 800px;
+        }
+        video {
+            width: 100%;
+            border: 2px solid #fff;
+            border-radius: 8px;
+        }
+        #watermark {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            font-size: 14px;
+            border-radius: 5px;
+        }
+        #watermark a {
+            color: #00afff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="video-container">
+        <video id="video" controls autoplay></video>
+        <div id="watermark">
+            Powered by <a href="https://t.me/Linux_Bots" target="_blank">Linux Bots</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const video = document.getElementById('video');
+            
+            // Obfuscated URL
+            const encodedURL = atob("aHR0cHM6Ly9teWN0eGEudGVteWNzc21lLndpa2kvNzIwcC5tM3U4");
+            
+            if (Hls.isSupported()) {
+                const hls = new Hls();
+                hls.loadSource(encodedURL);
+                hls.attachMedia(video);
+                hls.on(Hls.Events.MANIFEST_PARSED, function () {
+                    video.play();
+                });
+            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                video.src = encodedURL;
+                video.addEventListener('loadedmetadata', function () {
+                    video.play();
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
