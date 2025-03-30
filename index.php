@@ -145,7 +145,7 @@
 <script>
 
     const urlParams = new URLSearchParams(window.location.search);
-    const videoUrl = urlParams.get('video') || 'https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/hdntl=exp=1742807949~acl=/*~data=hdntl~hmac=82503849249783b714bd6b5996167a88e48a528916c1ac20b7dd8bae23538118/Sports18_1_HD_voot_MOB-audio_108038_eng=108000-video=2297600.m3u8';
+    const videoUrl = urlParams.get('video') || 'https://1a-1791.com/live/ol95fwjc/slot-5/hvlh-hqmq_1080p/chunklist.m3u8';
 
 
     const videoSource = document.getElementById('video-source');
