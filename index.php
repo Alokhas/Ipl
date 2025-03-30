@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Fluid Player</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="http://cdn.fluidplayer.com/v2/current/fluidplayer.min.css" type="text/css"/>
+    <title>Fluid Player</title>
+    <link rel="stylesheet" href="https://cdn.fluidplayer.com/v2/current/fluidplayer.min.css" type="text/css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-X6ZVYvCmiVbvD5v/C9w4Fv2NoMfrhPSuUR7fNWLzox/0YbTkiQTlNEmQJ0ZiOZMw3RExp4/6dZt6r8SzOvH5ow==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body, html {
@@ -19,10 +20,9 @@
             padding: 20px;
             text-align: center;
             border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-            animation: fadeIn 1s ease;
-            background: linear-gradient(to right, #f58634, #f76803); 
+            background: linear-gradient(to right, #f58634, #f76803);
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); 
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
         .header h1 {
             margin: 0;
@@ -30,31 +30,13 @@
             font-weight: 700;
             letter-spacing: 2px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            animation: shadowPulse 2s infinite alternate; /* Subtle pulse animation */
-        }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-        @keyframes shadowPulse {
-            from {
-                text-shadow: 2px 2px 6px rgba(255, 255, 255, 0.5); 
-            }
-            to {
-                text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.7); 
-            }
         }
         .container {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: calc(100% - 200px); 
-            animation: slideInUp 1s ease;
+            height: calc(100% - 200px);
         }
         .video-container {
             position: relative;
@@ -64,36 +46,10 @@
             overflow: hidden;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
-            animation: pulse 2s infinite alternate;
-        }
-        @keyframes slideInUp {
-            from {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-        @keyframes pulse {
-            from {
-                transform: scale(1);
-            }
-            to {
-                transform: scale(1.05);
-            }
         }
         #my-video {
             width: 100%;
             height: 100%;
-        }
-        p {
-            margin-top: 20px;
-            font-size: 18px;
-            font-weight: 300;
-            letter-spacing: 1px;
-            animation: fadeIn 1s ease;
         }
         .telegram-button {
             margin-top: 20px;
@@ -104,7 +60,6 @@
             font-size: 18px;
             border-radius: 50px;
             cursor: pointer;
-            transition: background-color 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -122,12 +77,12 @@
             font-size: 24px;
         }
     </style>
-    <script src="http://cdn.fluidplayer.com/v2/current/fluidplayer.min.js"></script>
+    <script src="https://cdn.fluidplayer.com/v2/current/fluidplayer.min.js"></script>
 </head>
 <body>
 
 <div class="header">
-    <h1>MI VS CSK</h1>
+    <h1>IPL LIVE STREAMING</h1>
 </div>
 
 <div class="container">
@@ -136,31 +91,25 @@
             <source id="video-source" title='Video' type='video/mp4' />
         </video>
     </div>
-    <p>Enjoy adfree  content!</p>
+    <p>Enjoy ad-free content!</p>
     <a href="https://t.me/Linux_Bots" target="_blank" class="telegram-button">
         <i class="fab fa-telegram-plane"></i>Join our Telegram Channel
     </a>
 </div>
 
 <script>
-
     const urlParams = new URLSearchParams(window.location.search);
     const videoUrl = urlParams.get('video') || 'https://1a-1791.com/live/ol95fwjc/slot-5/hvlh-hqmq_1080p/chunklist.m3u8';
-
-
+    
     const videoSource = document.getElementById('video-source');
     videoSource.src = videoUrl;
-
-  
-    fluidPlayer(
-        'my-video',
-        {
-            layoutControls: {
-                primaryColor: "#28B8ED",
-                allowDownload: false 
-            }
+    
+    fluidPlayer('my-video', {
+        layoutControls: {
+            primaryColor: "#28B8ED",
+            allowDownload: false 
         }
-    );
+    });
 </script>
 
 </body>
